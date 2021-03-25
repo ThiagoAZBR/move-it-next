@@ -22,7 +22,7 @@ interface HomeProps {
 import styles from '../styles/pages/Home.module.css'
 import { useContext, useEffect, useState } from 'react';
 import { isBlock } from 'typescript';
-import { Settings } from '../components/Setting';
+// import { Settings } from '../components/Setting';
 
 export default function Home(props: HomeProps) {
 
