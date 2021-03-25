@@ -9,6 +9,7 @@ interface CountdownContextData {
     isActive: boolean;
     StartCountdown: () => void;
     ResetCountdown: () => void;
+    modifyTimer: (parameter) => any;
 
 }
 
@@ -24,15 +25,20 @@ export const CountdownContext = createContext({} as CountdownContextData)
 
 export function CountdownProvider( {children} : CountdownProviderProps ) {
 
-    const { startNewChallenge } = useContext(ChallengesContext);
+    const { startNewChallenge, turnReadyOff } = useContext(ChallengesContext);
 
-    const [time, setTime] = useState(0.1 * 60);
+    const [time, setTime] = useState(5);
     const [isActive, setIsActive] = useState(false);
     const [hasFinished, setHasFinished] = useState(false);
 
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
 
+    function modifyTimer(parameter: any) {
+
+        setTime(parseInt(parameter))
+
+    }
     
     function StartCountdown() {
         setIsActive(true)
@@ -46,7 +52,7 @@ export function CountdownProvider( {children} : CountdownProviderProps ) {
 
         if (time == 0) {
 
-            setTime(0.1 * 60)
+            setTime(1 * 60)
 
         }
 
@@ -65,8 +71,10 @@ export function CountdownProvider( {children} : CountdownProviderProps ) {
         } else if (isActive && time === 0) {
 
             setHasFinished(true)
+            turnReadyOff()
             setIsActive(false)
             startNewChallenge()
+
             
         }
 
@@ -81,7 +89,8 @@ export function CountdownProvider( {children} : CountdownProviderProps ) {
             hasFinished,
             isActive,
             StartCountdown,
-            ResetCountdown
+            ResetCountdown,
+            modifyTimer
 
         }}>
 

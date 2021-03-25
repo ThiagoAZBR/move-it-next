@@ -16,63 +16,126 @@ export function Countdown() {
         ResetCountdown
     
         } = useContext(CountdownContext)
+    
+    const { ready } = useContext(ChallengesContext)
 
     const [minuteLeft, minuteRight] = String(minutes).padStart(2, '0').split('');
     const [secondLeft, secondRight] = String(seconds).padStart(2, '0').split('');
+    let size_screen
 
+    if (typeof window !== "undefined") {
+        // browser code
+        size_screen = window.innerWidth
+      }
 
     return (
-
         <div>
-            <div className = {styles.countdownContainer}>
-                <div>
-                    <span>{minuteLeft}</span>
-                    <span>{minuteRight}</span>
-                </div>
-                
-                <span>:</span>
-
-                <div>
-                    <span>{secondLeft}</span>
-                    <span>{secondRight}</span>
-                </div>
+            {size_screen <= 430 ? (
+                <>
+            
+            {ready && (
+                //  ------------------
+        <div>
+        <div className = {styles.countdownContainer}>
+            <div>
+                <span>{minuteLeft}</span>
+                <span>{minuteRight}</span>
             </div>
+            
+            <span>:</span>
 
-            {hasFinished ? (
+            <div>
+                <span>{secondLeft}</span>
+                <span>{secondRight}</span>
+            </div>
+        </div>
+        
+        {hasFinished ? (
 
+            <button 
+            disabled
+            className={styles.countdownButton}
+            >
+            Ciclo Encerrado
+            </button>
+
+        ) : (
+            <>
+                {isActive ? (
                 <button 
-                disabled
-                className={styles.countdownButton}
+                    type='button' 
+                    className={`${styles.countdownButton} ${styles.countdownButtonActive}`}
+                    onClick={ResetCountdown}
                 >
-                Ciclo Encerrado
+                    Abandonar Ciclo
                 </button>
 
-            ) : (
-                <>
-                    {isActive ? (
-                    <button 
-                        type='button' 
-                        className={`${styles.countdownButton} ${styles.countdownButtonActive}`}
-                        onClick={ResetCountdown}
-                    >
-                        Abandonar Ciclo
-                    </button>
+                ) : (
+                <button 
+                    type='button' 
+                    className={styles.countdownButton} 
+                    onClick={StartCountdown}
+                >
+                    Iniciar Um Ciclo
+                </button>
+                )}
+            </>
+        ) }
+    </div>
 
-                    ) : (
-                    <button 
-                        type='button' 
-                        className={styles.countdownButton} 
-                        onClick={StartCountdown}
-                    >
-                        Iniciar Um Ciclo
-                    </button>
-                    )}
+                //  ------------------
+            )}
                 </>
-            ) }
-
+            ) : (
+                <div>
+                <div className = {styles.countdownContainer}>
+                    <div>
+                        <span>{minuteLeft}</span>
+                        <span>{minuteRight}</span>
+                    </div>
+                    
+                    <span>:</span>
+        
+                    <div>
+                        <span>{secondLeft}</span>
+                        <span>{secondRight}</span>
+                    </div>
+                </div>
+                
+                {hasFinished ? (
+        
+                    <button 
+                    disabled
+                    className={styles.countdownButton}
+                    >
+                    Ciclo Encerrado
+                    </button>
+        
+                ) : (
+                    <>
+                        {isActive ? (
+                        <button 
+                            type='button' 
+                            className={`${styles.countdownButton} ${styles.countdownButtonActive}`}
+                            onClick={ResetCountdown}
+                        >
+                            Abandonar Ciclo
+                        </button>
+        
+                        ) : (
+                        <button 
+                            type='button' 
+                            className={styles.countdownButton} 
+                            onClick={StartCountdown}
+                        >
+                            Iniciar Um Ciclo
+                        </button>
+                        )}
+                    </>
+                ) }
+            </div>
+            )}
 
         </div>
-
-    );
-
+    )
 }

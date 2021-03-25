@@ -6,8 +6,8 @@ import { CountdownContext } from '../contexts/CountdownContext';
 
 export function ChallengeBox() {
 
-    const { activeChallenge, resetChallenge, completeChallenge } = useContext(ChallengesContext);
-    const { ResetCountdown } = useContext(CountdownContext);
+    const { activeChallenge, resetChallenge, completeChallenge, ready } = useContext(ChallengesContext);
+    const { ResetCountdown, hasFinished } = useContext(CountdownContext);
 
 
     function handleChallengeSucceeded() {
@@ -24,54 +24,116 @@ export function ChallengeBox() {
 
     }
 
+    let size_screen
+
+    if (typeof window !== "undefined") {
+        // browser code
+        size_screen = window.innerWidth
+      }
 
     return(
+        <div className={styles.global}>
+            {size_screen <= 430 ? (
+            <>
 
-        <div className={styles.challengeBoxContainer}>
+            {hasFinished && (
+                            
+            <div className={styles.challengeBoxContainer}>
 
-            { activeChallenge ? (
-                <div className = {styles.challengeActive}>
+                { activeChallenge ? (
+                    <div className = {styles.challengeActive}>
 
-                    <header>Ganhe {activeChallenge.amount} xp</header>
+                        <header>Ganhe {activeChallenge.amount} xp</header>
 
-                    <main>
-                        <img src={`${activeChallenge.type}.png`}/>
-                        <strong>Novo Desafio</strong>
-                        <p>{activeChallenge.description}</p>
-                    </main>
+                        <main>
+                            <img src={`${activeChallenge.type}.png`}/>
+                            <strong>Novo Desafio</strong>
+                            <p>{activeChallenge.description}</p>
+                        </main>
 
-                    <footer>
-                        <button 
-                            type='button'
-                            id={styles.challengeFailedButton}
-                            onClick={handleChallengeFailed}
-                        >
-                            Falhei
-                        </button>
+                        <footer>
+                            <button 
+                                type='button'
+                                id={styles.challengeFailedButton}
+                                onClick={handleChallengeFailed}
+                            >
+                                Falhei
+                            </button>
 
-                        <button 
-                            type='button'
-                            id={styles.challengeSucceededButton}
-                            onClick={handleChallengeSucceeded}
-                        >
-                            Completei
-                        </button>
-                    </footer>
+                            <button 
+                                type='button'
+                                id={styles.challengeSucceededButton}
+                                onClick={handleChallengeSucceeded}
+                            >
+                                Completei
+                            </button>
+                        </footer>
 
-                </div>
+                    </div>
+
+                ) : (
+                    <div className={styles.challengeNotActive}>
+                        <strong>Finalize um ciclo para receber um desafio</strong>
+                        <p>
+                            <img src="level-up.svg" alt="Level Up (Subir de Nível)"/>
+                            Suba de Nivel Completando Desafios
+                        </p>
+                    </div>
+                )}
+
+            </div>
+
+                    )}
+                </>
 
             ) : (
-                <div className={styles.challengeNotActive}>
-                    <strong>Finalize um ciclo para receber um desafio</strong>
-                    <p>
-                        <img src="level-up.svg" alt="Level Up (Subir de Nível)"/>
-                        Suba de Nivel Completando Desafios
-                    </p>
-                </div>
+                        
+                <div className={styles.challengeBoxContainer}>
+
+                { activeChallenge ? (
+                    <div className = {styles.challengeActive}>
+
+                        <header>Ganhe {activeChallenge.amount} xp</header>
+
+                        <main>
+                            <img src={`${activeChallenge.type}.png`}/>
+                            <strong>Novo Desafio</strong>
+                            <p>{activeChallenge.description}</p>
+                        </main>
+
+                        <footer>
+                            <button 
+                                type='button'
+                                id={styles.challengeFailedButton}
+                                onClick={handleChallengeFailed}
+                            >
+                                Falhei
+                            </button>
+
+                            <button 
+                                type='button'
+                                id={styles.challengeSucceededButton}
+                                onClick={handleChallengeSucceeded}
+                            >
+                                Completei
+                            </button>
+                        </footer>
+
+                    </div>
+
+                ) : (
+                    <div className={styles.challengeNotActive}>
+                        <strong>Finalize um ciclo para receber um desafio</strong>
+                        <p>
+                            <img src="level-up.svg" alt="Level Up (Subir de Nível)"/>
+                            Suba de Nivel Completando Desafios
+                        </p>
+                    </div>
+                )}
+
+            </div>
             )}
-
         </div>
-
     );
 
 }

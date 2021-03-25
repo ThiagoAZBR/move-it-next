@@ -1,0 +1,78 @@
+.global {
+
+    background-color: var(--blue);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.modal {
+
+    background-color: var(--white);
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem 3rem;
+    border-radius: 5px;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    position: relative;
+
+}
+
+.modal header {
+
+    margin-top: 3rem;
+    font-size: 8.75rem;
+    font-weight: 600;
+    color: var(--blue);
+    margin-bottom: -18rem;
+}
+
+.modal header img {
+
+    height: 30%;
+    width: 82%;
+    transform: translateY(-80%);
+
+}
+
+.modal strong {
+
+    font-size: 2.25rem;
+    color: var(--title);
+
+
+}
+
+.modal p {
+
+    font-size: 1.25rem;
+    color: var(--text);
+    margin-top: 0.25rem;
+
+}
+
+.modal button {
+
+    position: absolute;
+    right: 0.5rem;
+    top: 0.5rem;
+    background-color: transparent;
+    border: 0;
+    font-size: 0;
+
+}
+
+.modal button img {
+
+    width: 55px;
+    height: 55px;
+
+}
