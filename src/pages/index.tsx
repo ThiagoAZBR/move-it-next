@@ -66,7 +66,7 @@ export default function Home(props: HomeProps) {
 
             </div>
           </section>
-          <Settings />
+          {/* <Settings /> */}
         </CountdownProvider>
 
 
