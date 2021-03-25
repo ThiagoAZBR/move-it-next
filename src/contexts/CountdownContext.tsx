@@ -9,7 +9,7 @@ interface CountdownContextData {
     isActive: boolean;
     StartCountdown: () => void;
     ResetCountdown: () => void;
-    modifyTimer: (parameter) => any;
+    // modifyTimer: (parameter) => any;
 
 }
 
@@ -34,11 +34,11 @@ export function CountdownProvider( {children} : CountdownProviderProps ) {
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
 
-    function modifyTimer(parameter: any) {
+    // function modifyTimer(parameter: any) {
 
-        setTime(parseInt(parameter))
+    //     setTime(parseInt(parameter))
 
-    }
+    // }
     
     function StartCountdown() {
         setIsActive(true)
@@ -89,8 +89,8 @@ export function CountdownProvider( {children} : CountdownProviderProps ) {
             hasFinished,
             isActive,
             StartCountdown,
-            ResetCountdown,
-            modifyTimer
+            ResetCountdown
+            // modifyTimer
 
         }}>
 
