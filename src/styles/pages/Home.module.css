@@ -35,3 +35,13 @@
     }
 
 }
+
+@media (max-width: 500px) and (min-width: 385px) {
+
+    .container section {
+
+        padding: 3.6rem;
+
+    }
+
+}
