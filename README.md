@@ -7,8 +7,8 @@
 
 Usando como ideia a técnica de Pomodoro, foi construído um site para melhorar a Produtividade e não esquecer dos Autocuidados. Com uma boa experiência de usuário e uma aparência de que se está jogando um jogo, vai ser bem divertido usar esse site!
 
-Foi Utilizado:       > TypeScript
-                     > React
+Foi Utilizado:<br>   > TypeScript <br>
+                     > React <br>
                      > Next.js</h4>
 
 #
