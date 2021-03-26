@@ -73,6 +73,7 @@
 
 }
 
+
 .countdownButton:not(:disabled):hover {
 
     background-color: var(--blue-dark);
@@ -98,5 +99,21 @@
     background-color: var(--white);
     color: var(--text);
     cursor: not-allowed;
+
+}
+
+@media (max-width: 430px) {
+
+    .countdownButton {
+
+        width: 100%;
+
+    }
+
+    .countdownContainer > div {
+
+        font-size: 7.8rem;
+
+    }
 
 }

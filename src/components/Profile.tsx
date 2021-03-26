@@ -24,7 +24,7 @@ export function Profile() {
     return (
 
         <div id={styles.root}>
-            {size_screen <= 430 ? (
+            {size_screen <= 830 ? (
                 <>
                 {ready && (
                     <div className = {styles.profileContainer}>
@@ -37,7 +37,7 @@ export function Profile() {
 
                                         <figcaption className={styles.personal_figcaption}>
 
-                                            <img src="https://raw.githubusercontent.com/ThiagoLuizNunes/angular-boilerplate/master/src/assets/imgs/camera-white.png" />
+                                            <img src="https://raw.githubusercontent.com/ThiagoLuizNunes/angular-boilerplate/master/src/assets/imgs/camera-white.png" id={styles.cameraImg} />
 
                                         </figcaption>
                                     </figure>

@@ -150,3 +150,16 @@
     filter: brightness(0.9);
 
 }
+
+ @media (max-width: 430px) {
+
+     .global {
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+
+    } 
+
+} 

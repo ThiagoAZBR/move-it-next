@@ -38,3 +38,19 @@ span.currentExperience {
     transform: translateX(-50%);
 
 }
+
+@media (max-width: 430px) {
+
+    .experienceBar span {
+
+        font-size: 0.7rem;
+
+    }
+
+    #spanAtualXp {
+
+        display: none;
+
+    }
+
+}

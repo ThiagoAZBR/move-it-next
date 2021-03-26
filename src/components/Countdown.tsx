@@ -30,7 +30,7 @@ export function Countdown() {
 
     return (
         <div>
-            {size_screen <= 430 ? (
+            {size_screen <= 830 ? (
                 <>
             
             {ready && (

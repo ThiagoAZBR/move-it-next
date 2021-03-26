@@ -19,6 +19,9 @@
     height: 100px;
     margin-right: 0.8rem;
 }
+
+
+
 .personal_avatar {
     cursor: pointer;
     width: inherit;
@@ -80,3 +83,27 @@
 
 }
 
+@media (max-width: 430px) {
+
+    .personal_figure {
+
+        width: 20vw;
+        height: 12vh;
+
+    }
+
+    .personal_figcaption > img {
+
+        margin-top: 13.5px;
+        width: 40px;
+        height: 40px;
+
+    }
+
+    .profileContainer {
+
+        margin-top: 0.5rem;
+
+    }
+
+}

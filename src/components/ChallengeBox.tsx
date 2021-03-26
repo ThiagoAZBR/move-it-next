@@ -33,7 +33,7 @@ export function ChallengeBox() {
 
     return(
         <div className={styles.global}>
-            {size_screen <= 430 ? (
+            {size_screen <= 830 ? (
             <>
 
             {hasFinished && (
@@ -72,13 +72,7 @@ export function ChallengeBox() {
                     </div>
 
                 ) : (
-                    <div className={styles.challengeNotActive}>
-                        <strong>Finalize um ciclo para receber um desafio</strong>
-                        <p>
-                            <img src="level-up.svg" alt="Level Up (Subir de Nível)"/>
-                            Suba de Nivel Completando Desafios
-                        </p>
-                    </div>
+                    <div style={{ display: 'none' }}></div>
                 )}
 
             </div>

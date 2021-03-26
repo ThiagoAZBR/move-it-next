@@ -20,6 +20,7 @@
 
 }
 
+
 #buttonClose {
 
     background-color: transparent;
@@ -120,5 +121,43 @@
     font-size: 2rem;
     width: 15vw;
     text-align: center;
+
+}
+
+
+@media (max-width: 430px) {
+
+    .global > button > img {
+
+        height: 10vh;
+        width: 15vw;
+
+    }
+
+    #buttonClose {
+
+        width: 15vw;
+        height: 10vh;
+
+    }
+
+    #phraseConfig {
+
+        font-size: 1.3rem;
+
+    }
+
+    #inputNumber {
+
+        width: 40vw;
+        background-color: transparent;
+
+    }
+
+    #submittButton {
+
+        width: 25vw;
+
+    }
 
 }
